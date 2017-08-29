@@ -1,35 +1,33 @@
-# Realtime Streaming Stock Market Data
+# Nasdaq's Realtime Streaming Stock Market Data for Hackathons
 
-Client SDK
+## Leverage streaming data to solve real world problems.
 
-```python
-import socket
-import os
-import sys
+### Criteria
 
-# create a socket object
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+* Most interesting use of data - clever use of data that intrigues the audience because of its creativity and/or practicality.
+* Most impactful - with further development, could impact a large audience.
 
-# host connection
-host = '0.0.0.0'
-port = 80
+### Sample Data
+Symbol | Date | Time | Bid Price | Bid Exchange | Bid Size | Ask Price | Ask Exchange | Ask Size
+--- | --- | --- | --- | --- | --- | --- | --- | ---
+ITUB | 03/03/2014 | 09:30:00.006 | 13.07 | P | 3 | 13.16 | P | 12
 
-# connect to host
-s.connect((host, port))
+### Nodejs Client SDK - WebSockets
 
-while True:
-    try:
-        # get 1024 bytes
-        data = s.recv(1024)
-        
-        # check for empty byte (end of stream)
-        if str(data)== 'b\'\'':
-            s.close()
-            break
-            
-        # do something with the stream data    
-        print(data)
-    except:
-        e = sys.exc_info()[0]
-        print('ERROR: %s' % e)
+```javascript
+    var sys = require('sys');
+    var WebSocket = require('websocket').WebSocket;
+
+    // host connection
+    var ws = new WebSocket('ws://0.0.0.0/', 'data');
+
+    // bind listener
+    ws.addListener('data', function(buf) {
+        sys.debug('Got data: ' + sys.inspect(buf));
+    });
+
+    // do something with the stream data  
+    ws.onmessage = function(m) {
+        sys.debug('Got message: ' + m);
+    }
 ```

@@ -1,0 +1,10 @@
+column_name,data_type
+symbol,string
+date,date
+time,time
+bid_price,decimal
+bid_exchange,string
+bid_size,integer
+ask_price,decimal
+ask_exchange,string
+ask_size,integer
