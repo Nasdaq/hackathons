@@ -10,7 +10,7 @@
 ### Sample Data
 Symbol | Date | Time | Bid Price | Bid Exchange | Bid Size | Ask Price | Ask Exchange | Ask Size
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-ITUB | 03/03/2014 | 09:30:00.006 | 13.07 | P | 3 | 13.16 | P | 12
+ITUB | 03/03/2014 | 09:30:00.006 | 13.07 | P | 3 | 13.16 | P | 11
 
 ### Nodejs Client SDK - WebSockets
 
