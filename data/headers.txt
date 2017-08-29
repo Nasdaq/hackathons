@@ -1,3 +1,4 @@
+
 column_name,data_type
 symbol,string
 date,date
