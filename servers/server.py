@@ -61,7 +61,7 @@ class StreamHandler(tornado.websocket.WebSocketHandler):
         meg = 'new connection'
         log_event(self, msg)
         try:
-            with open("data.txt", 'rb', buffering=20*(1024**2)) as data:
+            with open("data.json", 'rb', buffering=20*(1024**2)) as data:
                 for line in data:
                     self.write_message(line)
         except:

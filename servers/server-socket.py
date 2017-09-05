@@ -14,7 +14,7 @@ serversocket.bind((host, port))
 
 def createClientSocket(clientsocket):
     print("Connection from: %s" % str(addr))
-    with open("data.txt", 'rb', buffering=20*(1024**2)) as data:
+    with open("data.json", 'rb', buffering=20*(1024**2)) as data:
         for line in data:
             clientsocket.send(line)
     clientsocket.close()
