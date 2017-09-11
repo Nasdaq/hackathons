@@ -1,0 +1,108 @@
+<DOCTYPE html>
+<html>
+<head>
+  <title>WS Sample Client</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.17/c3.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.17/c3.min.css" media="screen">
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div id="chart"></div>
+  </div>
+
+  <script>
+
+
+    Array.prototype.constrict = function(id){
+      this.splice(0,2);
+      this.unshift(id);
+      return this;
+    }
+
+    var chart;
+    var csvData;
+
+    var ws = new WebSocket('ws://localhost:9001');
+
+    var bidPrice = ['Bid Price'];
+    var askPrice = ['Ask Price'];
+    var _date = ['x'];
+
+    ws.onmessage = function(payload){
+
+      var jsonFile = new Blob([payload.data],{type:'application/json'});
+      var url = URL.createObjectURL(jsonFile);
+
+
+
+      d3.json(url, function(data){
+
+        if(chart != undefined){
+          chart.destroy();
+        }
+
+        var fileData  = data;
+
+
+        if(bidPrice.length > 20){
+          bidPrice.constrict("Bid Price");
+        }
+        bidPrice = bidPrice.concat(fileData.best_bid.toFixed(2));
+
+        if(askPrice.length > 20){
+          askPrice.constrict("Ask Price");
+        }
+        askPrice = askPrice.concat(fileData.best_ask.toFixed(2));
+
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth();
+        var day = today.getDate();
+        var pTime = year+'-'+month+'-'+day+' '+fileData.time;
+
+        if(_date.length > 20){
+          _date.constrict("x");
+        }
+        _date = _date.concat(pTime);
+
+
+        chart = c3.generate({
+            bindto: '#chart',
+
+            transition: {
+              duration: 100
+            },
+
+            data: {
+               x: 'x',
+               xFormat: '%Y-%m-%d %H:%M:%S.%L%L%L',
+               columns: [
+                 _date,
+                 bidPrice,
+                 askPrice
+               ]
+           },
+           axis: {
+               x: {
+                   type: 'timeseries',
+                   tick: {
+                       format: '%H:%M:%S.%L',
+                       count: 20
+                   }
+               }
+           }
+
+
+        });
+
+
+
+      });
+    }
+
+  </script>
+</body>
+</html>
