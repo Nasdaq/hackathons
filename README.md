@@ -1,11 +1,25 @@
-# Nasdaq's Realtime Streaming Stock Market Data for Hackathons
+# Nasdaq's 2017 HackMIT Challenge:
+## "Best Re-imagination of Markets" - Hack today's financial markets. We are looking for hacks that introduce a new way to look at financial markets.
 
-## Leverage streaming data to solve real world problems.
+Examples:
+* Face recognition technology parallel to creating financial landmarks
+* Electrical signal process to find financial signals
+* Using Amazon Alexa, chat bots for financial use case
+* VR for a financial use-case
+* Graph technology for finance
+* Visualization of some analysis; visualize market data as a tree growing
+* Show streaming market data in context of historical norms
+* Identify inflection point on streaming market data
+* Chart of chocolate milk production vs. Nasdaq-100 index performance
 
-### Criteria
+## Judging Criteria
+* Intersting use of the data
+* Potential impact
+* Technical accomplishment
+* Flair, baby
 
-* Most interesting use of data - clever use of data that intrigues the audience because of its creativity and/or practicality.
-* Most impactful - with further development, could impact a large audience.
+## The Data: Realtime Streaming Stock Market Data 
+Two datasets: A) intraday for selected days and b) end-of-day for longer historical range
 
 ### Level 1 Data
 One of the tools (day) traders use to make their trades is market data, commonly referred to as Level 1 and Level 2 market data, or market depth. Reliable Level 1 quotes aid investors in getting better prices for security purchases and sales, especially in fast-moving markets where investors may prefer limit orders rather than market orders.
