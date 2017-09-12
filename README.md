@@ -1,4 +1,4 @@
-# Nasdaq's 2017 HackMIT Challenge:
+# Nasdaq's hackathon challenge:
 ## "Best Re-imagination of Markets" - Hack today's financial markets. We are looking for hacks that introduce a new way to look at financial markets.
 
 Examples:
