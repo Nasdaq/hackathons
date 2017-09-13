@@ -18,45 +18,102 @@ Examples:
 * Technical accomplishment
 * Flair, baby
 
-## The Data: Realtime Streaming Stock Market Data 
-Two datasets: A) intraday for selected days and b) end-of-day for longer historical range
-
-### Level 1 Data
-One of the tools (day) traders use to make their trades is market data, commonly referred to as Level 1 and Level 2 market data, or market depth. Reliable Level 1 quotes aid investors in getting better prices for security purchases and sales, especially in fast-moving markets where investors may prefer limit orders rather than market orders.
-
-### What is 'Bid and Ask'
-A two-way price quotation that indicates the best price at which a security can be sold and bought at a given point in time.The bid price represents the maximum price that a buyer or buyers are willing to pay for a security. The ask price represents the minimum price that a seller or sellers are willing to receive for the security. A trade or transaction occurs when the buyer and seller agree on a price for the security.
-
-The difference between the bid and asked prices, or the spread, is a key indicator of the liquidity of the asset - generally speaking, the smaller the spread, the better the liquidity.
-
 ### Sample Data
 
 ```json
 {
-    "type": "l1_quote",
-    "time": "08:07:10.958899195",
-    "symbol": "NDAQ",
-    "best_bid": 26.32,
-    "best_ask": 48.30
+    "Symbol": "NDAQ",
+    "DateStamp": "2017-08-10T00:00:00Z",
+    "High": 76.7999000000, 
+    "Low": 75.5810000000,  
+    "Open": 76.0300000000,
+    "Close": 75.9200000000, 
+    "LastSale": 75.9200000000, 
+    "Volume": 750671
 }
+```
+
+### Address and Usage
+URI for realtime stream
+```
+ws://0.0.0.0/stream
+```
+
+Parameters
+* Symbols (stock tickers) - one or more, comma seperated
+```
+symbol=NDAQ,AAPL,GOOG,MSFT
+```
+* Start date
+```
+start=20170101
+```
+* End date
+```
+end=20170201
 ```
 
 ### Nodejs Client SDK - WebSockets
 
 ```javascript
-    var sys = require('sys');
-    var WebSocket = require('websocket').WebSocket;
+    var WebSocket = require('ws');
+    var ws = new WebSocket("ws://0.0.0.0/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201");
 
-    // host connection
-    var ws = new WebSocket('ws://0.0.0.0/', 'data');
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
 
-    // bind listener
-    ws.addListener('data', function(buf) {
-        sys.debug('Got data: ' + sys.inspect(buf));
+    process.stdin.on('data', function(message) {
+      message = message.trim();
+      ws.send(message, console.log.bind(null, 'Sent : ', message));
     });
 
-    // do something with the stream data  
-    ws.onmessage = function(m) {
-        sys.debug('Got message: ' + m);
-    }
+    ws.on('message', function(message) {
+      console.log('Received: ' + message);
+    });
+
+    ws.on('close', function(code) {
+      console.log('Disconnected: ' + code);
+    });
+
+    ws.on('error', function(error) {
+      console.log('Error: ' + error.code);
+    });
+```
+
+### Python Client SDK - WebSockets
+
+```python
+    import sys
+    import websocket
+    import thread
+    import time
+
+    def on_message(ws, message):
+        print message
+
+    def on_error(ws, error):
+        print error
+
+    def on_close(ws):
+        print "### closed ###"
+
+    def on_open(ws):
+        def run(*args):
+            for i in range(100):
+                time.sleep(1)
+                ws.send("Hello %d" % i)
+            time.sleep(1)
+            ws.close()
+            print "thread terminating..."
+        thread.start_new_thread(run, ())
+
+    if __name__ == "__main__":
+        websocket.enableTrace(True)
+        url = 'ws://0.0.0.0/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201')
+        ws = websocket.WebSocketApp(url,
+                                    on_message = on_message,
+                                    on_error = on_error,
+                                    on_close = on_close)
+        ws.on_open = on_open
+        ws.run_forever()
 ```
