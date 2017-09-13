@@ -18,7 +18,7 @@ Examples:
 * Technical accomplishment
 * Flair, baby
 
-### Sample Data
+## Sample Data
 
 ```json
 {
@@ -33,13 +33,13 @@ Examples:
 }
 ```
 
-### Address and Usage
-URI for realtime stream
+## Address and Usage
+### URI for realtime stream
 ```
 ws://0.0.0.0/stream
 ```
 
-Parameters
+### Parameters
 * Symbols (stock tickers) - one or more, comma seperated
 ```
 symbol=NDAQ,AAPL,GOOG,MSFT
@@ -53,8 +53,8 @@ start=20170101
 end=20170201
 ```
 
-### Nodejs Client SDK - WebSockets
-
+## Client WebSocket Examples
+### Nodejs
 ```javascript
     var WebSocket = require('ws');
     var ws = new WebSocket("ws://0.0.0.0/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201");
@@ -80,8 +80,7 @@ end=20170201
     });
 ```
 
-### Python Client SDK - WebSockets
-
+### Python
 ```python
     import sys
     import websocket
