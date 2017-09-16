@@ -117,7 +117,7 @@ end=20170201
         ws.run_forever()
 ```
  ### Python 3 Example
- ```
+ ```python
  import websocket
 import threading
 import time
