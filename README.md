@@ -80,7 +80,7 @@ end=20170201
     });
 ```
 
-### Python
+### Python 2.7
 ```python
     import sys
     import websocket
