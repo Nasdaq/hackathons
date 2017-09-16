@@ -98,7 +98,7 @@ end=20170201
 
     def on_open(ws):
         def run(*args):
-            for i in range(100):
+            for i in range(1):
                 time.sleep(1)
                 ws.send("Hello %d" % i)
             time.sleep(1)
