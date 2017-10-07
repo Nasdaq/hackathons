@@ -36,7 +36,7 @@ Examples:
 ## Address and Usage
 ### URI for realtime stream
 ```
-ws://35.161.245.102/stream
+ws://34.214.11.52/stream
 ```
 
 ### Parameters
@@ -57,7 +57,7 @@ end=20170201
 ### Nodejs
 ```javascript
     var WebSocket = require('ws');
-    var ws = new WebSocket("ws://35.161.245.102/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201");
+    var ws = new WebSocket("ws://34.214.11.52/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201");
 
     process.stdin.resume();
     process.stdin.setEncoding('utf8');
@@ -108,7 +108,7 @@ end=20170201
 
     if __name__ == "__main__":
         websocket.enableTrace(True)
-        url = 'ws://35.161.245.102/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201')
+        url = 'ws://34.214.11.52/stream?symbol=NDAQ,AAPL,GOOG,MSFT&start=20170101&end=20170201')
         ws = websocket.WebSocketApp(url,
                                     on_message = on_message,
                                     on_error = on_error,
@@ -152,7 +152,7 @@ def main():
     symbols = args.symbols.split(',')
 
     for symbol in symbols:
-        url = 'ws://35.161.245.102/stream?symbol={}&start={}&end={}'.format(symbol,args.start_date,args.end_date)
+        url = 'ws://34.214.11.52/stream?symbol={}&start={}&end={}'.format(symbol,args.start_date,args.end_date)
  
         ws = websocket.WebSocketApp(url,
                                     on_message = on_message,
