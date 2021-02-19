@@ -13,7 +13,7 @@ Feel free to spend as much or as little time as you&#39;d like as long as you fe
 
 ## Problem
 
-Build a point-in-time order book that takes a timestamp input and returns the top 5 best bids (sorted by price descending &amp; time ascending) and top 5 best asks (sorted by price ascending &amp; time ascending) with quantitiesfor a single security.
+Build a point-in-time order book that takes a timestamp input and returns the top 5 best bids (sorted by price descending &amp; time ascending) and top 5 best asks (sorted by price ascending &amp; time ascending) with quantities for a single security.
 
 [Source data for the exercise.](https://github.com/Nasdaq/hack/blob/master/software-engineering-interview/quotes_2021-02-18.csv.zip)
 
