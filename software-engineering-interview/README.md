@@ -7,7 +7,7 @@ Thank you for taking the time to complete our coding test. Your challenge is to 
 - There are three parts to an order book: buy orders, sell orders, and order history.
 - More information: [https://www.investopedia.com/terms/o/order-book.asp](https://www.investopedia.com/terms/o/order-book.asp)
 
-You can use Java, Python, or C++ and any library for this test. We want to see how you think about and solve problems in code, so make sure there is enough of your own code in there.
+You can use Java or C++ and any library for this test. We want to see how you think about and solve problems in code, so make sure there is enough of your own code in there.
 
 Feel free to spend as much or as little time as you&#39;d like as long as you feel it&#39;s complete.
 
