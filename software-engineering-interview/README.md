@@ -19,14 +19,14 @@ Build a point-in-time order book that takes a timestamp input and returns the to
 
 Your output should be in the following format:
 ```
-$symbol
+$symbol (time)
 Best Bids: price1 (quantity); ... price5 (quantity);
 Best Asks: price1 (quantity); ... price5 (quantity);
 ```
 
 For example:
 ```
-$AAPL
+$AAPL (2021-02-18T10:20:55.015Z)
 Best Bids: 128.28 (300); 128.27 (100); 128.27 (50); 128.26 (200); 128.24 (100);
 Best Asks: 128.25 (100); 128.26 (50); 128.28 (50); 128.28 (200); 128.29 (100);
 ```
