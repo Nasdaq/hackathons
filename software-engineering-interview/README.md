@@ -40,7 +40,7 @@ Best Asks: 128.25 (100); 128.26 (50); 128.28 (50); 128.28 (200); 128.29 (100);
 | bidQuantity | Bid quantity |
 | askQuantity | Ask quantity |
 | bidPrice | Bid price |
-| ask\_price | Ask price |
+| askPrice | Ask price |
 | startTime | Start timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
 | endTime | End timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
 | quoteConditions | Quote condition |
