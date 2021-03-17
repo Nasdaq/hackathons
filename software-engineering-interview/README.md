@@ -41,8 +41,8 @@ Best Asks: 128.25 (100); 128.26 (50); 128.28 (50); 128.28 (200); 128.29 (100);
 | askQuantity | Ask quantity |
 | bidPrice | Bid price |
 | askPrice | Ask price |
-| startTime | Timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
-| endTime | Ignore |
+| startTime | Quote start timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
+| endTime | Quote end timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
 | quoteConditions | Quote condition |
 | sipFeed | Feed on which quote was reported |
 | sipfeedSeq | Sequence of quote on the feed |
