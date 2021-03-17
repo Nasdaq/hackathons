@@ -26,7 +26,7 @@ Best Asks: price1 (quantity); ... price5 (quantity);
 
 For example:
 ```
-$AAPL (2021-02-18T10:20:55.015Z)
+$FAKE (2000-01-02T10:20:55.015Z)
 Best Bids: 128.28 (300); 128.27 (100); 128.27 (50); 128.26 (200); 128.24 (100);
 Best Asks: 128.25 (100); 128.26 (50); 128.28 (50); 128.28 (200); 128.29 (100);
 ```
@@ -41,8 +41,8 @@ Best Asks: 128.25 (100); 128.26 (50); 128.28 (50); 128.28 (200); 128.29 (100);
 | askQuantity | Ask quantity |
 | bidPrice | Bid price |
 | askPrice | Ask price |
-| startTime | Start timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
-| endTime | End timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
+| startTime | Timestamp in format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39; |
+| endTime | Ignore |
 | quoteConditions | Quote condition |
 | sipFeed | Feed on which quote was reported |
 | sipfeedSeq | Sequence of quote on the feed |
